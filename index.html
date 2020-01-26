@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stalk Hub - Github</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="GS.css">
+</head>
+
+<body>
+    <div class="container">
+        <center><input type="text" placeholder="Enter Username" class="username"
+                onchange="search(document.querySelector('.username').value)"></center>
+        <center><img src=""
+                onerror="document.querySelector('.dp').src = 'https://techcrunch.com/wp-content/uploads/2010/07/github-logo.png?w=512'"
+                class='dp'>
+            <div class="info"><br><br><br><br><br><br><br><br><br>
+                <div class="name"></div>
+                <div class="attherate"></div>
+                <br>
+                <div class="ff"></div>
+                <br>
+                <div class="email"></div>
+                <br>
+                <div class="company"></div>
+                <br>
+                <div class="place"></div>
+                <br>
+                <div class="bio"></div><br>
+                <div class="line"></div>
+                <br>
+                <div class="repos">Repositories</div>
+            </div>
+
+            <div class="repositories"></div>
+        </center>
+        <div class="prelo">
+            <img src="https://rahulotwani.github.io/Github-Stalker/static/images/octocat-spinner-64.gif" class="loader">
+        </div>
+    </div>
+
+    <script>
+        search("rahulotwani");
+        function search(x) {
+            document.querySelector(".prelo").style.filter = "opacity(1)";
+            document.querySelector(".prelo").style.zIndex = "5";
+            setTimeout(() => {
+                document.querySelector(".prelo").style.filter = "opacity(0)";
+                document.querySelector(".prelo").style.zIndex = "-5";
+            }, 2000);
+            window.scrollTo(0, 0);
+            document.querySelector(".info").innerHTML = '<br><br><br><br><br><br><br><br><br><div class="name"></div><div class="attherate"></div><br><div class="ff"></div><br><div class="bio"></div><br><div class="email"></div><br><div class="company"></div><br><div class="place"></div><br><div class="line"></div><br><div class="repos">Repositories</div>';
+            if (x.trim() != "") {
+                var apiUsers = "https://api.github.com/users/" + x + "?client_id=aae2b6a7048aa7f13048&client_secret=29e07c8279cc434f282bd2071a09013c330f3c46",
+                    apiRepos = "https://api.github.com/users/" + x + "/repos?client_id=f7a2c629ce3110fbf13d&client_secret=bc3d989098f1595ad9864e1642975afa09b3b07a&per_page=20";
+                $.getJSON(apiUsers, responseUsers);
+                $.getJSON(apiRepos, responseRepos);
+            }
+        }
+        function responseUsers(data) {
+            document.querySelector('.bio').innerHTML = data.bio;
+            document.querySelector('.dp').src = data.avatar_url;
+            document.querySelector('.attherate').innerHTML = "@" + data.login;
+            document.querySelector('.name').innerHTML = data.name;
+            document.querySelector('.ff').innerHTML = data.followers + " Followers • " + data.following + " Following";
+            document.querySelector('.place').innerHTML = data.location;
+            document.querySelector('.email').innerHTML = data.email;
+            if (data.company != null)
+                document.querySelector('.company').innerHTML = "Works at " + data.company;
+            else
+                document.querySelector('.company').innerHTML = "";
+        }
+        function responseRepos(data) {
+            console.log(data);
+            document.querySelector(".repositories").innerHTML = "";
+            for (var i = 0; i < data.length; i++) {
+                document.querySelector(".repositories").innerHTML += '<br><br><a href=' + data[i].html_url + 'target="_blank" style="text-decoration: none;"><div class="item"><div class="reponame">' + data[i].full_name + '</div><div class="language">Made with ' + data[i].language + '</div><div class="created">Created on ' + data[i].created_at.substring(0, 10) + '</div><div class="lUpdated">Last Updated on ' + data[i].updated_at.substring(0, 10) + '</div><div class="stars">' + data[i].stargazers_count + ' stars achieved</div><div class="views">Viewed ' + data[i].watchers_count + ' times</div></div></a>';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
