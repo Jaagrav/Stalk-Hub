@@ -7,7 +7,107 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stalk Hub - Github</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="GS.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+body{
+    background: #000;
+    scroll-behavior: smooth;
+}
+.container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    top: 0;right: 0;left: 0;bottom: 0;
+}
+.username{
+    position: fixed;
+    height: 30px;
+    width: 80%;
+    margin: auto;
+    right: 0;left: 0;
+    bottom: 25px;
+    z-index: 4;
+    text-align: center;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    background: #111;
+    color: white;
+    font-size: 15px;
+}
+.dp{
+    z-index: -2;position: fixed;width: 100%;right: 0;left: 0;
+}
+.repo{
+    margin-bottom: 60px;
+}
+.info{
+    position: relative;
+    margin: auto;
+    top: 8pc;
+    z-index: 2;
+    right: 0;left: 0;
+    width: 100%;
+    background: linear-gradient(transparent,#000,#000,#000);
+    margin-bottom: 125px;
+}
+.name,.ff,.company,.place,.attherate,.repos,.email,.bio{
+    position: relative;
+    color: white;
+    width: 75%;
+    font-size: 40px;
+    font-family: 'Comfortaa', cursive;
+}
+.ff{
+    width: 80%;
+}
+.ff,.company,.place,.attherate,.email,.bio{
+    font-size: 20px;
+}
+.repositories{
+    position: relative;
+    margin: auto;
+    z-index: 2;
+    background-color: #000;
+    font-family: 'Comfortaa', cursive;
+    margin-bottom: 40px;
+}
+.item{
+    position: relative;
+    width: 80%;
+    padding: 15px;
+    z-index: 2;
+    border: 2px solid #111;
+    border-radius: 10px;
+    text-align: left;
+    font-family: 'Comfortaa', cursive;
+    line-height: 30px;
+    color: white;
+}
+.reponame{
+    overflow-x: scroll;
+    font-size: 30px;
+}
+.line{
+    position: relative;
+    height: 2px;
+    width: 70%;
+    background: #111;
+}
+.prelo{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    top: 0;right: 0;bottom: 0;left: 0;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+    </style>
 </head>
 
 <body>
