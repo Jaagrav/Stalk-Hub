@@ -154,7 +154,7 @@ body{
             window.scrollTo(0, 0);
             document.querySelector(".info").innerHTML = '<br><br><br><br><br><br><br><br><br><div class="name"></div><div class="attherate"></div><br><div class="ff"></div><br><div class="bio"></div><br><div class="email"></div><br><div class="company"></div><br><div class="place"></div><br><div class="line"></div><br><div class="repos">Repositories</div>';
             if (x.trim() != "") {
-                var apiUsers = "https://api.github.com/users/" + x + "&client_id=aae2b6a7048aa7f13048&client_secret=29e07c8279cc434f282bd2071a09013c330f3c46",
+                var apiUsers = "https://api.github.com/users/" + x + "?&client_id=aae2b6a7048aa7f13048&client_secret=29e07c8279cc434f282bd2071a09013c330f3c46",
                     apiRepos = "https://api.github.com/users/" + x + "/repos";
                 $.getJSON(apiUsers, responseUsers);
                 $.getJSON(apiRepos, responseRepos);
