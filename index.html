@@ -177,7 +177,7 @@ body{
             console.log(data);
             document.querySelector(".repositories").innerHTML = "";
             for (var i = 0; i < data.length; i++) {
-                document.querySelector(".repositories").innerHTML += '<br><br><a href=' + data[i].html_url + 'target="_blank" style="text-decoration: none;"><div class="item"><div class="reponame">' + data[i].full_name + '</div><div class="language">Made with ' + data[i].language + '</div><div class="created">Created on ' + data[i].created_at.substring(0, 10) + '</div><div class="lUpdated">Last Updated on ' + data[i].updated_at.substring(0, 10) + '</div><div class="stars">' + data[i].stargazers_count + ' stars achieved</div><div class="views">Viewed ' + data[i].watchers_count + ' times</div></div></a>';
+                document.querySelector(".repositories").innerHTML += '<br><br><a href=' + data[i].html_url + ' target="_blank" style="text-decoration: none;"><div class="item"><div class="reponame">' + data[i].full_name + '</div><div class="language">Made with ' + data[i].language + '</div><div class="created">Created on ' + data[i].created_at.substring(0, 10) + '</div><div class="lUpdated">Last Updated on ' + data[i].updated_at.substring(0, 10) + '</div><div class="stars">' + data[i].stargazers_count + ' stars achieved</div><div class="views">Viewed ' + data[i].watchers_count + ' times</div></div></a>';
             }
         }
 
